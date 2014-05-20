@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+   <title>@ViewBag.Title</title>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+ 
+    <body>
+        <ul id="menu">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+    </ul> 
+        <div>
+        
+            @RenderBody()
+
+        </div>
+    </body>
+</html>
