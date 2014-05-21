@@ -1,21 +1,28 @@
 ﻿<!DOCTYPE html>
-   <title>@ViewBag.Title</title>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>@ViewBag.Title</title>
-    </head>
- 
-    <body>
-        <ul id="menu">
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
-    </ul> 
-        <div>
-        
-            @RenderBody()
 
+<title>@ViewBag.Title</title>
+<html>
+<head>
+    <link href="/Scripts/Main.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <div id="lateral" style="position:absolute;left:-40px; top:40px;z-index:2;">
+    <ul id="menu">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Tickets", "Tickets", "Home")</li>
+        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+        <li>@Html.ActionLink("Crear Ticket","CreateTicket","Home")</li>
+    </ul>
         </div>
-    </body>
+    <div id="central" style="position:absolute;left:100px; top:40px;z-index:2;">
+
+        @RenderBody()
+
+    </div>
+
+
+</body>
 </html>

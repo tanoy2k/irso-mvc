@@ -1,0 +1,27 @@
+﻿@using MvcApplication1.Models
+@model MvcApplication1.Models.Ticket
+
+@{
+    ViewBag.Title = "CreateTicket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Ticket</legend>
+        <div>
+            @Html.LabelFor(model => model.Estado)
+            @{
+    List<Estados> liE = new List<Estados>();
+    EntornosDAO eDAO = new EntornosDAO();
+    liE = eDAO.GetEstados();
+            }
+            @Html.DropDownList("Estados", new SelectList(liE, "EstadoId", "EstadoDescripcion"));
+          
+            @Html.TextBoxFor(model => model.Prioridad)
+
+        </div>
+    </fieldset>
+        
+}
+<h2>CreateTicket</h2>
