@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
+using System.ComponentModel;
 
 namespace MvcApplication1.Models
 {
@@ -19,6 +16,7 @@ namespace MvcApplication1.Models
             set { usuario = value; }
         }
 
+        [DisplayName("Nombre")]
         public string Nombre
         {
             get { return nombre; }

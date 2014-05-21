@@ -1,0 +1,21 @@
+﻿body {
+    background-color: grey;
+}
+.t1 {
+    font-size: medium;
+    color: white
+
+    
+}
+ul
+{
+list-style-type: none;
+padding: 10px;
+margin: 0px;
+}
+ul li
+{
+background-repeat: no-repeat;
+background-position: 0px 5px;
+padding-left: 50px;
+}
