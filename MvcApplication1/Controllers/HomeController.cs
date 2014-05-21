@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
+using MvcApplication1.Models;
 
 namespace MvcApplication1.Controllers
 {
@@ -37,6 +38,21 @@ namespace MvcApplication1.Controllers
         public ActionResult CreateTicket()
         {
             return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult AddTicket()
+        {
+            Ticket t = new Ticket();
+            TicketDetalle tdet=new TicketDetalle();
+            t.Estado = Convert.ToInt32((Request.Form["Estados"]));
+            t.Prioridad = Convert.ToInt32(Request.Form["Prioridades"]);
+            t.Usuario = Convert.ToInt32(Session["UsuarioId"]);
+            tdet.UsuarioDetalle = Convert.ToInt32(Session["UsuarioId"]);
+            tdet.Ticketid = 1;
+            t.SaveTicket(t,tdet);
+            return Json(t);
 
         }
 

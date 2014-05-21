@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>CreateTicket</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("AddTicket","Home",FormMethod.Post))
 {
     <fieldset>
         <legend>Ticket</legend>
@@ -29,6 +29,7 @@
         <div>
             @Html.TextArea("Descripcion",new { rows=10, columns=100,style="resize:none;width:400px" })
         </div>
+        <input id="submit" name="submit" type="submit" value="Submit" />
     </fieldset>
     
         

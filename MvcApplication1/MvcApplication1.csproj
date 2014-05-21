@@ -49,6 +49,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -114,6 +115,8 @@
     <Compile Include="Models\Estados.cs" />
     <Compile Include="Models\Prioridades.cs" />
     <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\TicketDAO.cs" />
+    <Compile Include="Models\TicketDetalle.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -155,6 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\CreateTicket.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AddTicket.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
