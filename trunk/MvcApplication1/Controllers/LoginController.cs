@@ -22,6 +22,7 @@ namespace MvcApplication1.Controllers
         public ActionResult Validate()
         {
             Session["Usuario"] = "Emilio";
+            
             return Json(new {foo="bar", baz="Blech"}, JsonRequestBehavior.AllowGet);
            
         }
@@ -44,6 +45,7 @@ namespace MvcApplication1.Controllers
             if (usuario.Equals("emilio")&&password.Equals("emilio"))
             {
                 Session["Usuario"] = "Emilio";
+                Session["UsuarioId"] = "1";
                 return RedirectToAction("Index", "Home");
             }
             else

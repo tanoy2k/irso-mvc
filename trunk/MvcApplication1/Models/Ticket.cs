@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MvcApplication1.Models
 {
@@ -11,7 +12,7 @@ namespace MvcApplication1.Models
         private Int32 prioridad;
         private String hash;
 
-        public int Ticket1
+        public int TicketId
         {
             get { return ticket; }
             set { ticket = value; }
@@ -30,6 +31,7 @@ namespace MvcApplication1.Models
             set { estado = value; }
         }
 
+        [Required]
         public int Prioridad
         {
             get { return prioridad; }
@@ -40,6 +42,16 @@ namespace MvcApplication1.Models
         {
             get { return hash; }
             set { hash = value; }
+        }
+
+        public void SaveTicket(Ticket tick,TicketDetalle tickdet)
+        {
+            Ticket t1=new Ticket();
+            TicketDetalle t2=new TicketDetalle();
+            t1 = tick;
+            t2 = tickdet;
+            TicketDAO tdao = new TicketDAO();
+            tdao.SaveTicketDAO(t1,t2);
         }
     }
 }
