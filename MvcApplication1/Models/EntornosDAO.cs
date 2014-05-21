@@ -31,6 +31,26 @@ namespace MvcApplication1.Models
             reader.Close();
             data.sqlConnection.Close();
             return estadosList;
+        }
+
+        public List<Prioridades> GetPrioridades()
+        {
+            Datos data = new Datos();
+            data.conectar();
+            SqlCommand command = data.sqlConnection.CreateCommand();
+            command.CommandText = "Select * from PRIORIDADES";
+            command.CommandType = CommandType.Text;
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Prioridades uPrioridades = new Prioridades();
+                uPrioridades.PrioridadId = (int)reader["PRIORIDAD_ID"];
+               uPrioridades.PrioridadDescripcion = reader["PRIORIDAD_DESCRIPCION"].ToString();
+               prioridadesList.Add(uPrioridades);
+            }
+            reader.Close();
+            data.sqlConnection.Close();
+            return prioridadesList;
         } 
     }
 }

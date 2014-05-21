@@ -1,10 +1,12 @@
-﻿@using MvcApplication1.Models
+﻿@using System.Web.Mvc.Html
+@using MvcApplication1.Models
 @model MvcApplication1.Models.Ticket
 
 @{
     ViewBag.Title = "CreateTicket";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>CreateTicket</h2>
 @using (Html.BeginForm())
 {
     <fieldset>
@@ -12,16 +14,23 @@
         <div>
             @Html.LabelFor(model => model.Estado)
             @{
-    List<Estados> liE = new List<Estados>();
-    EntornosDAO eDAO = new EntornosDAO();
-    liE = eDAO.GetEstados();
+                List<Estados> liE = new List<Estados>();
+                EntornosDAO eDAO = new EntornosDAO();
+                liE = eDAO.GetEstados();
             }
-            @Html.DropDownList("Estados", new SelectList(liE, "EstadoId", "EstadoDescripcion"));
-          
-            @Html.TextBoxFor(model => model.Prioridad)
-
+            @Html.DropDownList("Estados", new SelectList(liE, "EstadoId", "EstadoDescripcion"))
+            @Html.LabelFor(model => model.Prioridad)
+            @{
+                List<Prioridades> liP = new List<Prioridades>();
+                liP = eDAO.GetPrioridades();
+            }
+            @Html.DropDownList("Prioridades", new SelectList(liP, "PrioridadId", "PrioridadDescripcion"))
+        </div>
+        <div>
+            @Html.TextArea("Descripcion",new { rows=10, columns=100,style="resize:none;width:400px" })
         </div>
     </fieldset>
+    
         
 }
-<h2>CreateTicket</h2>
+
