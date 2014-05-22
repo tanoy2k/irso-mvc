@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -57,6 +58,11 @@ namespace MvcApplication1.Models
             t2 = tickdet;
             TicketDAO tdao = new TicketDAO();
             tdao.SaveTicketDAO(t1,t2);
+        }
+
+        public IEnumerable<Ticket> GeTAllTickets()
+        {
+            
         }
     }
 }

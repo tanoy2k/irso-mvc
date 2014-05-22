@@ -9,7 +9,7 @@ namespace MvcApplication1.Models
     {
 
         private int ticketid;
-        private string detalle;
+        private string observaciones;
         private int usuario_detalle;
 
         public int Ticketid
@@ -18,10 +18,10 @@ namespace MvcApplication1.Models
             set { ticketid = value; }
         }
 
-        public string Detalle
+        public string Observaciones
         {
-            get { return detalle; }
-            set { detalle = value; }
+            get { return observaciones; }
+            set { observaciones = value; }
         }
 
         public int UsuarioDetalle
