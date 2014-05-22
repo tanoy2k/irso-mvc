@@ -13,6 +13,7 @@ namespace MvcApplication1.Controllers
         //
         // GET: /Login/
 
+
         public ActionResult Index()
         {
             Session.Clear();
