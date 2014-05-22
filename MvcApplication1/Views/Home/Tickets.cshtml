@@ -1,16 +1,18 @@
 ﻿@using System.Web.UI.WebControls
 @using MvcApplication1.Models
-@model dynamic
+@model Ticket
 
 @{
     ViewBag.Title = "title";
     Layout = "../Shared/_Layout.cshtml";
 }
+  @{var grid = WebGrid(Model);}
 <html>
-    <head>Ingreso de un nuevo Ticket</head>
+    <head>Listado de Tickets</head>
     <body>
         <div>
-            
+            @grid.GetHtml(grid.Column);
+
            
             
         </div>

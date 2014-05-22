@@ -50,6 +50,7 @@ namespace MvcApplication1.Controllers
             t.Prioridad = Convert.ToInt32(Request.Form["Prioridades"]);
             t.Usuario = Convert.ToInt32(Session["UsuarioId"]);
             tdet.UsuarioDetalle = Convert.ToInt32(Session["UsuarioId"]);
+            tdet.Observaciones = Request.Form["Observaciones"];
             tdet.Ticketid = 1;
             t.SaveTicket(t,tdet);
             return Json(t);
