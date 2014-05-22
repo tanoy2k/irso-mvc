@@ -12,6 +12,11 @@ namespace MvcApplication1.Models
         private Int32 prioridad;
         private String hash;
 
+        [DisplayName("RPRPRPRPRP")]
+        public string nombreu { get; set; }
+
+       
+
         public int TicketId
         {
             get { return ticket; }
