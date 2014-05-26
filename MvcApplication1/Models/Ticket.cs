@@ -11,6 +11,14 @@ namespace MvcApplication1.Models
         private Int32 usuario;
         private Int32 estado;
         private Int32 prioridad;
+        private Int32 usuario_asignado;
+
+        public int UsuarioAsignado
+        {
+            get { return usuario_asignado; }
+            set { usuario_asignado = value; }
+        }
+
         private String hash;
 
         [DisplayName("RPRPRPRPRP")]
@@ -60,9 +68,6 @@ namespace MvcApplication1.Models
             tdao.SaveTicketDAO(t1,t2);
         }
 
-        public IEnumerable<Ticket> GeTAllTickets()
-        {
-            
-        }
+        
     }
 }

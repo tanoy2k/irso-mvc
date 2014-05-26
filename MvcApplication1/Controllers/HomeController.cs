@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -28,9 +29,12 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Tickets()
         {
+           
             if (ValidarSesion())
             {
-                return View();  
+              TicketDAO uTkt = new TicketDAO();
+                
+                return View(uTkt.GetAllTicketsDAO());  
             }
             return RedirectToAction("Index", "Login");
         }
@@ -49,6 +53,7 @@ namespace MvcApplication1.Controllers
             t.Estado = Convert.ToInt32((Request.Form["Estados"]));
             t.Prioridad = Convert.ToInt32(Request.Form["Prioridades"]);
             t.Usuario = Convert.ToInt32(Session["UsuarioId"]);
+            t.UsuarioAsignado = Convert.ToInt32(Request.Form["Usuarios"]);
             tdet.UsuarioDetalle = Convert.ToInt32(Session["UsuarioId"]);
             tdet.Observaciones = Request.Form["Observaciones"];
             tdet.Ticketid = 1;

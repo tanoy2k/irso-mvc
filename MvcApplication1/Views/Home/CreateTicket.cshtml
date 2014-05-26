@@ -12,7 +12,7 @@
     <fieldset>
         <legend>Ticket</legend>
         <div>
-            @Html.LabelFor(model=>model.nombreu)
+            
             @Html.LabelFor(model => model.Estado)
             @{
                 List<Estados> liE = new List<Estados>();
@@ -26,6 +26,13 @@
                 liP = eDAO.GetPrioridades();
             }
             @Html.DropDownList("Prioridades", new SelectList(liP, "PrioridadId", "PrioridadDescripcion"))
+            @Html.Label("Usuario Asignado")
+            @{
+                List<Usuario> liU = new List<Usuario>();
+                UsuarioDAO uDAO = new UsuarioDAO();
+                liU = uDAO.GetAlumnos();
+            }
+            @Html.DropDownList("Usuarios", new SelectList(liU, "Usuario1", "Nombre"))
         </div>
         <div>
             @Html.TextArea("Observaciones",new { rows=10, columns=100,style="resize:none;width:400px" })
