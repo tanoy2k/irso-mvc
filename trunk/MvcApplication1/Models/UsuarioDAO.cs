@@ -12,21 +12,18 @@ namespace MvcApplication1.Models
 
         public List<Usuario> GetAlumnos()
         {
-          Datos data = new Datos();
+            Datos data = new Datos();
             data.conectar();
             SqlCommand command = data.sqlConnection.CreateCommand();
-            command.CommandText = "Select * from ALUMNOS";
+            command.CommandText = "Select * from USUARIOS";
             command.CommandType = CommandType.Text;
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                string output = reader["NOMBRE"].ToString();
-                string output2 = reader["DNI"].ToString();
-                Console.WriteLine(output);
-                Usuario uList = new Usuario();
-                uList.Nombre=output;
-                uList.Apellido = output2;
-                ListaUsuarios.Add(uList);
+                Usuario uUsuario = new Usuario();
+                uUsuario.Nombre = (string) reader["USUARIO"];
+                uUsuario.Usuario1 = (int) reader["USUARIO_ID"];
+                ListaUsuarios.Add(uUsuario);
             }
             reader.Close();
             data.sqlConnection.Close();

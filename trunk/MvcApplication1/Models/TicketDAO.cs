@@ -11,7 +11,11 @@ using System.Web;
 namespace MvcApplication1.Models
 {
     public class TicketDAO
+
+
     {
+        private List<Ticket> ListaTickets = new List<Ticket>(); 
+
         public void SaveTicketDAO(Ticket tickdao,TicketDetalle tickdaodet)
         {
             Ticket t=new Ticket();
@@ -27,7 +31,7 @@ namespace MvcApplication1.Models
             command.Parameters.AddWithValue("@ESTADO_ID",t.Estado);
             command.Parameters.AddWithValue("@PRIORIDAD_ID",t.Prioridad);
             command.Parameters.AddWithValue("@USUARIO_CREO",t.Usuario);
-            command.Parameters.AddWithValue("@USUARIO_ASIGNADO",t.Usuario);
+            command.Parameters.AddWithValue("@USUARIO_ASIGNADO",t.UsuarioAsignado);
             command.Parameters.AddWithValue("@USUARIO_DETALLE", td.UsuarioDetalle);
             command.Parameters.AddWithValue("@OBSERVACIONES", td.Observaciones);
             DateTime d=new DateTime();
@@ -37,16 +41,25 @@ namespace MvcApplication1.Models
             data.sqlConnection.Close();
             }
 
-        public IEnumerable<Ticket> GetAllTicketsDAO()
+        public List<Ticket> GetAllTicketsDAO()
         {
-            IEnumerable<Ticket> itTickets;
             Datos data = new Datos();
             data.conectar();
             SqlCommand command = data.sqlConnection.CreateCommand();
             command.CommandText = "Select * from TICKETS";
             command.CommandType = CommandType.Text;
             SqlDataReader reader = command.ExecuteReader();
-            
+            while (reader.Read())
+            {
+                Ticket uTicket = new Ticket();
+                uTicket.Usuario = (int) reader["USUARIO_CREO"];
+                uTicket.Estado = (int) reader["ESTADO_ID"];
+                uTicket.TicketId = (int) reader["TICKET_ID"];
+                ListaTickets.Add(uTicket);
+            }
+            reader.Close();
+            data.sqlConnection.Close();
+            return ListaTickets;
         }
     }
 }

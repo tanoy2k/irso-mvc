@@ -52,5 +52,7 @@ namespace MvcApplication1.Models
             data.sqlConnection.Close();
             return prioridadesList;
         } 
+
+
     }
 }
