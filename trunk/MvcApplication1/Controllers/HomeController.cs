@@ -68,5 +68,11 @@ namespace MvcApplication1.Controllers
             { return false;}
             return true;
         }
+
+        public ActionResult EditTicket(int t)
+        {
+            return View();
+
+        }
     }
 }
