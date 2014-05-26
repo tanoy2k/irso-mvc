@@ -18,7 +18,7 @@
                 @grid.GetHtml(htmlAttributes: new { id = "DataTable" }, 
 columns: grid.Columns(
        grid.Column("TicketId"),grid.Column("Usuario"),
-       grid.Column("", header: "ToEdit", format: @<text>@Html.ActionLink("Editar","CreateTicket",new {t=item.TicketId})</text>)
+       grid.Column("", header: "ToEdit", format: @<text>@Html.ActionLink("Editar","EditTicket",new {t=item.TicketId})</text>)
       ))
         }
               

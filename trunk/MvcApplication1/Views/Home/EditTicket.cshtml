@@ -1,9 +1,18 @@
-﻿@model dynamic
+﻿@using MvcApplication1.Models
+@model MvcApplication1.Models.Ticket
 
 @{
     ViewBag.Title = "Editar Ticket";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    <div>
+        @Html.LabelFor(model => model.Estado)
+        @{
+            var liE = new List<Estados>();
+            EntornosDAO eDAO = new EntornosDAO();
+            liE = eDAO.GetEstados();
+        }
+    
+    </div>
+    <h2>title</h2>
 
-    
-    
-<h2>title</h2>
+}
