@@ -2,6 +2,7 @@
 @using MvcApplication1.Models
 @model MvcApplication1.Models.Ticket
 
+
 @{
     ViewBag.Title = "CreateTicket";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,7 +37,7 @@
         </div>
         <div>
             @Html.TextArea("Observaciones",new { rows=10, columns=100,style="resize:none;width:400px" })
-        </div>
+      </div>
         <input id="submit" name="submit" type="submit" value="Submit" />
     </fieldset>
     

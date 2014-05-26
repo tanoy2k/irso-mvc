@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -18,11 +19,8 @@ namespace MvcApplication1.Models
             set { ticketid = value; }
         }
 
-        public string Observaciones
-        {
-            get { return observaciones; }
-            set { observaciones = value; }
-        }
+        [Required]
+        public string Observaciones { get; set; }
 
         public int UsuarioDetalle
         {
