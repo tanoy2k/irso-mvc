@@ -12,6 +12,13 @@ namespace MvcApplication1.Models
         private Int32 estado;
         private Int32 prioridad;
         private Int32 usuario_asignado;
+        private List <TicketDetalle> ticketDetalle;
+
+        public List<TicketDetalle> TicketDetalle
+        {
+            get { return ticketDetalle; }
+            set { ticketDetalle = value; }
+        }
 
         public int UsuarioAsignado
         {
@@ -67,6 +74,8 @@ namespace MvcApplication1.Models
             TicketDAO tdao = new TicketDAO();
             tdao.SaveTicketDAO(t1,t2);
         }
+
+        
 
         
     }
