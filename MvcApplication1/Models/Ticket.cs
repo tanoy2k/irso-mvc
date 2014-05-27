@@ -107,6 +107,14 @@ namespace MvcApplication1.Models
             tdao.SaveTicketDAO(t1,t2);
         }
 
+        public Ticket ticketDao(int id )
+        {
+            Ticket tick = new Ticket();
+            TicketDAO tDao = new TicketDAO();
+            tick = tDao.getTciketporId(id);
+            return tick;
+        }
+
         
 
         

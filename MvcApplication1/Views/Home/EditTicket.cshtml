@@ -5,13 +5,25 @@
     ViewBag.Title = "Editar Ticket";
     Layout = "~/Views/Shared/_Layout.cshtml";
     <div>
-        @Html.LabelFor(model => model.Estado)
+       @Html.LabelFor(model=>model.TicketId)
+        @Html.DisplayTextFor(model=>model.TicketId)
+        @Html.LabelFor(model=>model.Estado)
+         @Html.DisplayTextFor(model=>model.Estado)
+        @Html.LabelFor(model=>model.EstadoDescripcion)
+        @Html.DisplayTextFor(model=>model.EstadoDescripcion)
+          @Html.LabelFor(model=>model.Usuario)
+        @Html.DisplayTextFor(model=>model.UsuarioDescripcion)
+          @Html.LabelFor(model=>model.UsuarioAsignado)
+        @Html.DisplayTextFor(model=>model.UsuarioAsignadoDescripcion)
+        
+        
         @{
-            var liE = new List<Estados>();
-            EntornosDAO eDAO = new EntornosDAO();
-            liE = eDAO.GetEstados();
+                var grid = new WebGrid(source: Model.TicketDetalle, canPage: true, rowsPerPage: 10);
+                @grid.GetHtml(htmlAttributes: new { id = "DataTable" }, 
+columns: grid.Columns(
+       grid.Column("UsuarioDetalle"),grid.Column("Observaciones")
+        ))
         }
-    
     </div>
     <h2>title</h2>
 

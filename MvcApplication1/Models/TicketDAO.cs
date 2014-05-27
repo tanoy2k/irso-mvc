@@ -15,6 +15,8 @@ namespace MvcApplication1.Models
 
     {
         private List<Ticket> ListaTickets = new List<Ticket>(); 
+        
+      
 
         public void SaveTicketDAO(Ticket tickdao,TicketDetalle tickdaodet)
         {
@@ -60,6 +62,47 @@ namespace MvcApplication1.Models
             reader.Close();
             data.sqlConnection.Close();
             return ListaTickets;
+        }
+
+       
+        public Ticket getTciketporId(int id)
+        {
+            Ticket tktXid = new Ticket();
+            List<TicketDetalle> tktDet=new List<TicketDetalle>();
+            Datos data = new Datos();
+            data.conectar();
+            SqlCommand command = new SqlCommand();
+            command.Connection = data.sqlConnection;
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "GET_TICKET";
+            command.Parameters.AddWithValue("@TICKET_ID", id);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                tktXid.TicketId = (int) reader["TICKET_ID"];
+                tktXid.Estado = (int) reader["ESTADO_ID"];
+                tktXid.EstadoDescripcion = (string) reader["ESTADO_DESCRIPCION"];
+                tktXid.Prioridad = (int) reader["PRIORIDAD_ID"];
+                tktXid.PrioridadDescripcion = (string) reader["PRIORIDAD_DESCRIPCION"];
+                tktXid.Usuario = (int) reader["USUARIO_CREO"];
+                tktXid.UsuarioDescripcion=(string)reader["USUARIO_CREO_DESCRIPCION"];
+                tktXid.UsuarioAsignado=(int)reader["USUARIO_ASIGNADO"];
+                tktXid.UsuarioAsignadoDescripcion=(string)reader["USUARIO_ASIGNADO_DESCRIPCION"];
+                
+            }
+            reader.Close();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "Select * from TICKETS_DETALLE WHERE TICKET_ID="+id;
+            var reader2 = command.ExecuteReader();
+            while (reader2.Read())
+            {
+             TicketDetalle tDetalle= new TicketDetalle();
+                tDetalle.UsuarioDetalle = (int) reader2["USUARIO_DETALLE"];
+                tDetalle.Observaciones = (string) reader2["OBSERVACIONES"];
+             tktDet.Add(tDetalle);   
+            }
+            tktXid.TicketDetalle = tktDet;
+            return tktXid;
         }
 
 
