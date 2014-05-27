@@ -9,11 +9,43 @@ namespace MvcApplication1.Models
     {
         private Int32 ticket;
         private Int32 usuario;
+        private String usuarioDescripcion;
         private Int32 estado;
+        private String estadoDescripcion;
         private Int32 prioridad;
-        private Int32 usuario_asignado;
-        private List <TicketDetalle> ticketDetalle;
+        private String prioridadDescripcion;
+        private Int32 usuarioAsignado;
+        private String usuarioAsignadoDescripcion;
+        private List<TicketDetalle> ticketDetalle;
 
+   
+
+
+        public string UsuarioDescripcion
+        {
+            get { return usuarioDescripcion; }
+            set { usuarioDescripcion = value; }
+        }
+
+        public string EstadoDescripcion
+        {
+            get { return estadoDescripcion; }
+            set { estadoDescripcion = value; }
+        }
+
+        public string PrioridadDescripcion
+        {
+            get { return prioridadDescripcion; }
+            set { prioridadDescripcion = value; }
+        }
+
+        public string UsuarioAsignadoDescripcion
+        {
+            get { return usuarioAsignadoDescripcion; }
+            set { usuarioAsignadoDescripcion = value; }
+        }
+
+  
         public List<TicketDetalle> TicketDetalle
         {
             get { return ticketDetalle; }
@@ -22,8 +54,8 @@ namespace MvcApplication1.Models
 
         public int UsuarioAsignado
         {
-            get { return usuario_asignado; }
-            set { usuario_asignado = value; }
+            get { return usuarioAsignado; }
+            set { usuarioAsignado = value; }
         }
 
         private String hash;
