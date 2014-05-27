@@ -71,7 +71,9 @@ namespace MvcApplication1.Controllers
 
         public ActionResult EditTicket(int t)
         {
-            return View();
+            Ticket tt=new Ticket();
+            return View(tt.ticketDao(t));
+            
 
         }
     }
