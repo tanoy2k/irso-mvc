@@ -31,5 +31,31 @@ namespace MvcApplication1.Models
 
         }
 
+        public Boolean ValidarUsuario(String usuario, String password)
+        {
+            Boolean usuarioValido;
+            Datos data = new Datos();
+            data.conectar();
+            SqlCommand command = data.sqlConnection.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "Select * from USUARIOS where usuario='"+usuario+
+                "' and password='"+password+"'";
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                usuarioValido= true;
+           }
+            else
+            {
+                usuarioValido= false;
+            }
+
+            reader.Close();
+            data.sqlConnection.Close();
+            return usuarioValido;
+
+        }
+
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Services.Description;
 using System.Web.UI.WebControls;
-
+using MvcApplication1.Models;
 
 
 namespace MvcApplication1.Controllers
@@ -54,11 +54,10 @@ namespace MvcApplication1.Controllers
 
             string usuario = Request.QueryString["usuario"];
             string password = Request.QueryString["password"];
-           
+            Usuario logUsuario=new Usuario();
 
             
-
-            if (usuario.Equals("emilio")&&password.Equals("emilio"))
+            if (logUsuario.ValidarUsuario(usuario,password))
             {
                 Session["Usuario"] = "Emilio";
                 Session["UsuarioId"] = "1";

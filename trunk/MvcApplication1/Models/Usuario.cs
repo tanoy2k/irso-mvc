@@ -28,5 +28,24 @@ namespace MvcApplication1.Models
             get { return apellido; }
             set { apellido = value; }
         }
+
+        public Boolean ValidarUsuario(String usuario,String password)
+        {
+            Boolean usuarioValido;
+            UsuarioDAO uDAO = new UsuarioDAO();
+
+            if (uDAO.ValidarUsuario(usuario, password))
+            {
+                usuarioValido = true;
+            }
+
+            else
+            {
+                usuarioValido = false;
+            }
+
+            return usuarioValido;
+        }
+        
     }
 }
