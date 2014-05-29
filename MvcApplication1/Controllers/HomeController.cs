@@ -48,17 +48,27 @@ namespace MvcApplication1.Controllers
         [HttpPost]
         public ActionResult AddTicket()
         {
-            Ticket t = new Ticket();
-            TicketDetalle tdet=new TicketDetalle();
-            t.Estado = Convert.ToInt32((Request.Form["Estados"]));
-            t.Prioridad = Convert.ToInt32(Request.Form["Prioridades"]);
-            t.Usuario = Convert.ToInt32(Session["UsuarioId"]);
-            t.UsuarioAsignado = Convert.ToInt32(Request.Form["Usuarios"]);
-            tdet.UsuarioDetalle = Convert.ToInt32(Session["UsuarioId"]);
-            tdet.Observaciones = Request.Form["Observaciones"];
-            tdet.Ticketid = 1;
-            t.SaveTicket(t,tdet);
-            return Json(t);
+            Boolean ses = ValidarSesion();
+            if (ses)
+            {
+
+
+                Ticket t = new Ticket();
+                TicketDetalle tdet = new TicketDetalle();
+                t.Estado = Convert.ToInt32((Request.Form["Estados"]));
+                t.Prioridad = Convert.ToInt32(Request.Form["Prioridades"]);
+                t.Usuario = Convert.ToInt32(Session["UsuarioId"]);
+                t.UsuarioAsignado = Convert.ToInt32(Request.Form["Usuarios"]);
+                tdet.UsuarioDetalle = Convert.ToInt32(Session["UsuarioId"]);
+                tdet.Observaciones = Request.Form["Observaciones"];
+                tdet.Ticketid = 1;
+                t.SaveTicket(t, tdet);
+                return Json(t);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
 
         }
 

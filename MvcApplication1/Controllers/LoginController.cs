@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Services.Description;
 using System.Web.UI.WebControls;
 
+
+
 namespace MvcApplication1.Controllers
 {
     public class LoginController : Controller
@@ -16,8 +18,21 @@ namespace MvcApplication1.Controllers
 
         public ActionResult Index()
         {
-            Session.Clear();
-            return View();
+            Boolean ses = ValidarSesion();
+            if (!ses)
+            {
+              Session.Clear();
+              return View();
+
+            }
+
+        else
+            {
+
+                return RedirectToAction("Index", "Home"); 
+            }
+
+           
         }
 
         public ActionResult Validate()
@@ -55,6 +70,12 @@ namespace MvcApplication1.Controllers
             }
         }
 
+        public Boolean ValidarSesion()
+        {
+            if (Session["Usuario"] == null)
+            { return false; }
+            return true;
+        }
         
     }
 }
