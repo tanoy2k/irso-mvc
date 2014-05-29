@@ -8,7 +8,13 @@ namespace MvcApplication1.Models
 {
     public class UsuarioDAO
     {
-        private List<Usuario> ListaUsuarios=new List<Usuario>(); 
+        private List<Usuario> ListaUsuarios=new List<Usuario>();
+        private String usuario;
+        private int usuarioId;
+        private String password;
+
+        
+
 
         public List<Usuario> GetAlumnos()
         {
@@ -38,7 +44,7 @@ namespace MvcApplication1.Models
             data.conectar();
             SqlCommand command = data.sqlConnection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "Select * from USUARIOS where usuario='"+usuario+
+            command.CommandText = "Select usuario_id from USUARIOS where usuario='"+ this.g  +
                 "' and password='"+password+"'";
             SqlDataReader reader = command.ExecuteReader();
 
