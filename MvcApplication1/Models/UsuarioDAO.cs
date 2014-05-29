@@ -63,5 +63,22 @@ namespace MvcApplication1.Models
 
         }
 
+        public string Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
+        public int UsuarioId
+        {
+            get { return usuarioId; }
+            set { usuarioId = value; }
+        }
+
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
     }
 }
