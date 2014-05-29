@@ -81,8 +81,16 @@ namespace MvcApplication1.Controllers
 
         public ActionResult EditTicket(int t)
         {
-            Ticket tt=new Ticket();
-            return View(tt.ticketDao(t));
+            if (ValidarSesion())
+            {
+                Ticket tt = new Ticket();
+                return View(tt.ticketDao(t));    
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
             
 
         }
