@@ -9,10 +9,12 @@ namespace MvcApplication1.Models
     public class UsuarioDAO
     {
         private List<Usuario> ListaUsuarios=new List<Usuario>();
-        private String usuario;
-        private int usuarioId;
-        private String password;
+        public String usuario { get; set; }
+        public int usuarioId { get; set; }
+        public String password { get; set; }
 
+
+       
         
 
 
@@ -27,8 +29,7 @@ namespace MvcApplication1.Models
             while (reader.Read())
             {
                 Usuario uUsuario = new Usuario();
-                uUsuario.Nombre = (string) reader["USUARIO"];
-                uUsuario.Usuario1 = (int) reader["USUARIO_ID"];
+                uUsuario.usuarioId = (int) reader["USUARIO_ID"];
                 ListaUsuarios.Add(uUsuario);
             }
             reader.Close();
@@ -37,15 +38,15 @@ namespace MvcApplication1.Models
 
         }
 
-        public Boolean ValidarUsuario(String usuario, String password)
+        public Boolean ValidarUsuario()
         {
             Boolean usuarioValido;
             Datos data = new Datos();
             data.conectar();
             SqlCommand command = data.sqlConnection.CreateCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = "Select usuario_id from USUARIOS where usuario='"+ this.g  +
-                "' and password='"+password+"'";
+            command.CommandText = "Select * from USUARIOS where usuario='"+ this.usuario +
+                "' and password='"+this.password+"'";
             SqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
@@ -57,28 +58,17 @@ namespace MvcApplication1.Models
                 usuarioValido= false;
             }
 
+            while (reader.Read())
+            {
+                this.usuarioId = (int)reader["USUARIO_ID"];
+            }
+
+
             reader.Close();
             data.sqlConnection.Close();
             return usuarioValido;
 
         }
 
-        public string Usuario
-        {
-            get { return usuario; }
-            set { usuario = value; }
-        }
-
-        public int UsuarioId
-        {
-            get { return usuarioId; }
-            set { usuarioId = value; }
-        }
-
-        public string Password
-        {
-            get { return password; }
-            set { password = value; }
-        }
     }
 }

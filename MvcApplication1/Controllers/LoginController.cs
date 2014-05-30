@@ -51,16 +51,15 @@ namespace MvcApplication1.Controllers
 
         public ActionResult ValidarLogin()
         {
+            Usuario loginUsuario=new Usuario();
+            loginUsuario.usuario = Request.QueryString["usuario"];
+            loginUsuario.password = Request.QueryString["password"];
+            Boolean autorizado = loginUsuario.ValidarUsuario();
 
-            string usuario = Request.QueryString["usuario"];
-            string password = Request.QueryString["password"];
-            Usuario logUsuario=new Usuario();
-
-            
-            if (logUsuario.ValidarUsuario(usuario,password))
+            if (autorizado)
             {
-                Session["Usuario"] = "Emilio";
-                Session["UsuarioId"] = "1";
+                Session["Usuario"] = loginUsuario.usuario;
+                Session["UsuarioId"] = loginUsuario.usuarioId;
                 return RedirectToAction("Index", "Home");
             }
             else

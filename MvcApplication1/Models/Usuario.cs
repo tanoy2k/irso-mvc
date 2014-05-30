@@ -5,16 +5,13 @@ namespace MvcApplication1.Models
 {
     public class Usuario
     {
-        private Int32 usuario;
+        public String usuario { get; set; }
+        public int usuarioId { get; set; }
         private String nombre;
         private String apellido;
-        private String password;
+        public String password { get; set; }
+        public Boolean autorizado { get; set; }
 
-        public int Usuario1
-        {
-            get { return usuario; }
-            set { usuario = value; }
-        }
 
         [DisplayName("Nombre")]
         public string Nombre
@@ -29,16 +26,17 @@ namespace MvcApplication1.Models
             set { apellido = value; }
         }
 
-        public Boolean ValidarUsuario(String usuario,String password)
+        public Boolean ValidarUsuario()
         {
             Boolean usuarioValido;
             UsuarioDAO uDAO = new UsuarioDAO();
+            uDAO.usuario = this.usuario;
+            uDAO.password = this.password;
 
-            if (uDAO.ValidarUsuario(usuario, password))
+            if (uDAO.ValidarUsuario())
             {
                 usuarioValido = true;
             }
-
             else
             {
                 usuarioValido = false;
