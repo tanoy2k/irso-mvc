@@ -12,7 +12,7 @@ namespace MvcApplication1.Models
         public String usuario { get; set; }
         public int usuarioId { get; set; }
         public String password { get; set; }
-
+        
 
        
         
@@ -29,6 +29,7 @@ namespace MvcApplication1.Models
             while (reader.Read())
             {
                 Usuario uUsuario = new Usuario();
+                uUsuario.usuario = (String)reader["USUARIO"];
                 uUsuario.usuarioId = (int) reader["USUARIO_ID"];
                 ListaUsuarios.Add(uUsuario);
             }
