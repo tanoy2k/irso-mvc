@@ -33,7 +33,7 @@
                 UsuarioDAO uDAO = new UsuarioDAO();
                 liU = uDAO.GetAlumnos();
             }
-            @Html.DropDownList("Usuarios", new SelectList(liU, "Usuario1", "Nombre"))
+            @Html.DropDownList("Usuarios", new SelectList(liU, "usuarioId", "usuario"))
         </div>
         <div>
             @Html.TextArea("Observaciones",new { rows=10, columns=100,style="resize:none;width:400px" })
