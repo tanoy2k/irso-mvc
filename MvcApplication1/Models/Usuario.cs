@@ -44,6 +44,15 @@ namespace MvcApplication1.Models
 
             return usuarioValido;
         }
+
+        public Usuario GetUsuarioId(String uDto)
+        {
+            UsuarioDAO uDAO=new UsuarioDAO();
+            Usuario uDTO=new Usuario();
+            uDTO=uDAO.GetUsuarioIdDAO(uDto);
+            return uDTO;
+
+        }
         
     }
 }

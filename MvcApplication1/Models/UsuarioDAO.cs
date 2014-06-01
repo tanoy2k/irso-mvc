@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 using Microsoft.SqlServer.Server;
 
 namespace MvcApplication1.Models
@@ -70,6 +71,26 @@ namespace MvcApplication1.Models
             return usuarioValido;
 
         }
+
+        public Usuario GetUsuarioIdDAO(String uDto)
+    {
+        Datos data = new Datos();
+        data.conectar();
+        SqlCommand command = data.sqlConnection.CreateCommand();
+        command.CommandType = CommandType.Text;
+        command.CommandText = "Select * from USUARIOS where usuario='" + uDto +"'";
+        SqlDataReader reader = command.ExecuteReader();
+            Usuario uDAO=new Usuario();
+            while (reader.Read())
+            {
+                uDAO.usuarioId = (int)reader["USUARIO_ID"];
+            }
+            reader.Close();
+            data.sqlConnection.Close();
+            return uDAO;
+
+
+    }
 
     }
 }

@@ -58,8 +58,10 @@ namespace MvcApplication1.Controllers
 
             if (autorizado)
             {
+                Usuario uDTO=new Usuario();
+                uDTO = loginUsuario.GetUsuarioId(loginUsuario.usuario);
                 Session["Usuario"] = loginUsuario.usuario;
-                Session["UsuarioId"] = loginUsuario.usuarioId;
+                Session["UsuarioId"] = uDTO.usuarioId;
                 return RedirectToAction("Index", "Home");
             }
             else
