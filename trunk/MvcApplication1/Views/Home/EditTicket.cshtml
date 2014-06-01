@@ -1,4 +1,5 @@
-﻿@using MvcApplication1.Models
+﻿@using System.Web.Mvc.Html
+@using MvcApplication1.Models
 @model MvcApplication1.Models.Ticket
 
 @{
@@ -7,9 +8,7 @@
     <div>
        @Html.LabelFor(model=>model.TicketId)
         @Html.DisplayTextFor(model=>model.TicketId)
-        @Html.LabelFor(model=>model.Estado)
-         @Html.DisplayTextFor(model=>model.Estado)
-        @Html.LabelFor(model=>model.EstadoDescripcion)
+       @Html.LabelFor(model=>model.EstadoDescripcion)
         @Html.DisplayTextFor(model=>model.EstadoDescripcion)
           @Html.LabelFor(model=>model.Usuario)
         @Html.DisplayTextFor(model=>model.UsuarioDescripcion)
@@ -24,6 +23,8 @@ columns: grid.Columns(
        grid.Column("UsuarioDetalle"),grid.Column("Observaciones")
         ))
         }
+        
+        @Html.TextArea("Detalle",new { rows=10, columns=100,style="resize:none;width:400px" })
     </div>
     <h2>title</h2>
 

@@ -36,6 +36,10 @@
             @Html.DropDownList("Usuarios", new SelectList(liU, "usuarioId", "usuario"))
         </div>
         <div>
+            @Html.Label("Titulo del Tikcket")
+            @Html.TextBoxFor(model=>model.TicketDescripcion)
+        </div>
+        <div>
             @Html.TextArea("Observaciones",new { rows=10, columns=100,style="resize:none;width:400px" })
       </div>
         <input id="submit" name="submit" type="submit" value="Submit" />

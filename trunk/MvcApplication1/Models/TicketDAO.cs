@@ -31,6 +31,7 @@ namespace MvcApplication1.Models
             command.CommandType = CommandType.StoredProcedure;
             command.CommandText = "CREATE_TICKETS";
             command.Parameters.AddWithValue("@ESTADO_ID",t.Estado);
+            command.Parameters.AddWithValue("@TICKET_DESCRIPCION", t.TicketDescripcion);
             command.Parameters.AddWithValue("@PRIORIDAD_ID",t.Prioridad);
             command.Parameters.AddWithValue("@USUARIO_CREO",t.Usuario);
             command.Parameters.AddWithValue("@USUARIO_ASIGNADO",t.UsuarioAsignado);

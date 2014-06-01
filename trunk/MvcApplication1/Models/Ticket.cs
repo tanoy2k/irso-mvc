@@ -8,6 +8,10 @@ namespace MvcApplication1.Models
     public class Ticket
     {
         private Int32 ticket;
+        private String ticketDescripcion;
+
+      
+
         private Int32 usuario;
         private String usuarioDescripcion;
         private Int32 estado;
@@ -56,6 +60,12 @@ namespace MvcApplication1.Models
         {
             get { return usuarioAsignado; }
             set { usuarioAsignado = value; }
+        }
+
+        public string TicketDescripcion
+        {
+            get { return ticketDescripcion; }
+            set { ticketDescripcion = value; }
         }
 
         private String hash;
