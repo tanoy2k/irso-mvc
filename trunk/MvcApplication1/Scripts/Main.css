@@ -18,4 +18,18 @@ ul li
 background-repeat: no-repeat;
 background-position: 0px 5px;
 padding-left: 50px;
+    font-family: "calibri";
+    font-size: 18pt;
+}
+.special {
+    font-size: 35pt ;
+    font-family: "calibri";
+    color: black;
+   
+}
+.list {
+    font-size: 16pt ;
+    font-family: "calibri";
+    color: black;
+   
 }
