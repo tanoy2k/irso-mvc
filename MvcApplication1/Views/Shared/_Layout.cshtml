@@ -8,21 +8,38 @@
     <title>@ViewBag.Title</title>
 </head>
 
-<body>
-    <div id="lateral" style="position:absolute;left:-40px; top:40px;z-index:2;">
-    <ul id="menu">
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("Tickets", "Tickets", "Home")</li>
-        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
-        <li>@Html.ActionLink("Crear Ticket","CreateTicket","Home")</li>
-    </ul>
+    <body>
+        
+        <div id="cabecera"style="position:absolute;top:10px;left:25%;z-index:2;">
+            <div class="special"> @Html.Label("SISTEMA DE TICKETS")</div>
+           </div>
+        
+    
+        <div id="login" style="position:absolute;top:10px;left:70%;z-index:2;" >
+            
+
+            @Html.Label("Bienvenido:"+(String) Session["Usuario"])
+
         </div>
-    <div id="central" style="position:absolute;left:100px; top:40px;z-index:2;">
+        
+        <div id="lateral" style="position:absolute;left:-40px; top:40px;z-index:2;">
+            <ul id="menu">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Tickets", "Tickets", "Home")</li>
+                <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+                <li>@Html.ActionLink("Crear Ticket","CreateTicket","Home")</li>
+            </ul>
+        </div>
+   
+        <div id="central" style="position:relative;left:160px; top:70px;z-index:2;">
+            <div class="list">
+                @RenderBody()
+            </div>
+      
+     
 
-        @RenderBody()
-
-    </div>
+        </div>
 
 
-</body>
+    </body>
 </html>

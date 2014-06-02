@@ -10,7 +10,7 @@
 <h2>CreateTicket</h2>
 @using (Html.BeginForm("AddTicket","Home",FormMethod.Post))
 {
-    <fieldset>
+    <fieldset style="width:50%">
         <legend>Ticket</legend>
         <div>
             
@@ -40,10 +40,11 @@
             @Html.TextBoxFor(model=>model.TicketDescripcion)
         </div>
         <div>
-            @Html.TextArea("Observaciones",new { rows=10, columns=100,style="resize:none;width:400px" })
-      </div>
+            @Html.TextArea("Observaciones",new { rows=10, columns=70,style="resize:none;width:100%" })
+        </div>
         <input id="submit" name="submit" type="submit" value="Submit" />
     </fieldset>
+  
     
         
 }
