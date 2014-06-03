@@ -15,6 +15,15 @@ $("#login2").on("click", function () {
 
 
 });
+
+$(".need-help").on("click",function () {
+    alert("LLamar al 0800-IRSO");
+});
+
+$(".new-account").on("click", function () {
+    alert("Funcionalidad en Desarrollo");
+});
+
 };
 
 

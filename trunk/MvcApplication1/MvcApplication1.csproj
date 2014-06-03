@@ -127,8 +127,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\Login.css" />
     <Content Include="Scripts\Login.js" />
-    <Content Include="Scripts\Main.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
