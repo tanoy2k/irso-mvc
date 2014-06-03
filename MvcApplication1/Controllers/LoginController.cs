@@ -35,7 +35,13 @@ namespace MvcApplication1.Controllers
            
         }
 
-
+        public ActionResult Validate()
+        {
+            Session["Usuario"] = "usuario";
+            
+            return Json(new {foo="bar", baz="Blech"}, JsonRequestBehavior.AllowGet);
+           
+        }
         public ActionResult Logout()
         {
             Session.Clear();
@@ -56,12 +62,16 @@ namespace MvcApplication1.Controllers
                 uDTO = loginUsuario.GetUsuarioId(loginUsuario.usuario);
                 Session["Usuario"] = loginUsuario.usuario;
                 Session["UsuarioId"] = uDTO.usuarioId;
-                return RedirectToAction("Index", "Home");
+                //return RedirectToAction("Index", "Home");
+                return Json(new { ok = "OK", msg = "Ingreso OK" }, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return RedirectToAction("Index", "Login");   
+                //return RedirectToAction("Index", "Login");   
+                return Json(new { ok = "no", msg = "Ingreso inválido" }, JsonRequestBehavior.AllowGet);
             }
+
+
         }
 
         public Boolean ValidarSesion()

@@ -10,10 +10,16 @@ $("#login2").on("click", function () {
     var miUsuario = $("#Usuario").val();
     var miPassword = $("#Password").val();
     
-    var queryString = window.document.location.href+"Login/ValidarLogin?usuario=" + miUsuario +"&password=" + miPassword;
-    window.location = queryString;
-
-
+    var queryString = "./Login/ValidarLogin?usuario=" + miUsuario +"&password=" + miPassword;
+    $.getJSON(queryString, function (data) {
+        console.log(JSON.stringify(data));
+        if (data.ok == "OK") {
+            window.location.href = "./Home";
+        } else {
+            alert(data.msg);
+        }
+        
+    })
 });
 
 $(".need-help").on("click",function () {
