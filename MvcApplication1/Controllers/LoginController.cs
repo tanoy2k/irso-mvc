@@ -35,13 +35,7 @@ namespace MvcApplication1.Controllers
            
         }
 
-        public ActionResult Validate()
-        {
-            Session["Usuario"] = "Emilio";
-            
-            return Json(new {foo="bar", baz="Blech"}, JsonRequestBehavior.AllowGet);
-           
-        }
+
         public ActionResult Logout()
         {
             Session.Clear();
