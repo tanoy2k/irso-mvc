@@ -49,7 +49,7 @@ namespace MvcApplication1.Models
             Datos data = new Datos();
             data.conectar();
             SqlCommand command = data.sqlConnection.CreateCommand();
-            command.CommandText = "Select * from TICKETS";
+            command.CommandText = "select * from tickets T inner join usuarios u on T.usuario_creo=u.USUARIO_id";
             command.CommandType = CommandType.Text;
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -58,6 +58,8 @@ namespace MvcApplication1.Models
                 uTicket.Usuario = (int) reader["USUARIO_CREO"];
                 uTicket.Estado = (int) reader["ESTADO_ID"];
                 uTicket.TicketId = (int) reader["TICKET_ID"];
+                uTicket.UsuarioDescripcion = (string) reader["USUARIO"];
+                uTicket.TicketDescripcion = (string) reader["TICKET_DESCRIPCION"];
                 ListaTickets.Add(uTicket);
             }
             reader.Close();

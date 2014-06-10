@@ -4,6 +4,9 @@
 <html>
 <head>
     <link href="/Scripts/Main.css" rel="stylesheet" type="text/css">
+    <link href="/Scripts/Login.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+       
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
@@ -11,7 +14,7 @@
     <body>
         
         <div id="cabecera"style="position:absolute;top:10px;left:25%;z-index:2;">
-            <div class="special"> @Html.Label("SISTEMA DE TICKETS")</div>
+            <div > @Html.Label("SISTEMA DE TICKETS")</div>
            </div>
         
     
@@ -23,7 +26,7 @@
         </div>
         
         <div id="lateral" style="position:absolute;left:-40px; top:40px;z-index:2;">
-            <ul id="menu">
+            <ul id="menu" role="menubar" aria-labelledby="dLabel" class="nav nav-pills nav-stacked">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("Tickets", "Tickets", "Home")</li>
                 <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
