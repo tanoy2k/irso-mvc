@@ -12,10 +12,10 @@
 <html>
     <head>Listado de Tickets</head>
     <body>
-        <div class="table-responsive" >
+        <div style="width: 100%">
             @{
-                var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 10);
-                @grid.GetHtml(htmlAttributes: new { id = "DataTable",@class="table table-condensed" }, 
+                var grid = new WebGrid(source: Model, canPage: true, rowsPerPage: 15);
+                @grid.GetHtml(htmlAttributes: new { id = "DataTable",@class="table table-hover" }, 
         columns: grid.Columns(
        grid.Column("TicketId","Id"),grid.Column("UsuarioDescripcion","Usuario"),grid.Column("TicketDescripcion","Descripcion"),
        grid.Column("", header: "Detalles", format: @<text>@Html.ActionLink("Editar","EditTicket",new {t=item.TicketId})</text>)
