@@ -110,10 +110,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Flujos.cs" />
     <Compile Include="Models\Datos.cs" />
     <Compile Include="Models\EntornosDAO.cs" />
     <Compile Include="Models\Estados.cs" />
+    <Compile Include="Models\FlujosDAO.cs" />
     <Compile Include="Models\Prioridades.cs" />
+    <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\TicketDAO.cs" />
     <Compile Include="Models\TicketDetalle.cs" />
@@ -127,8 +130,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\Login.css" />
     <Content Include="Scripts\Login.js" />
+    <Content Include="Scripts\Theme.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

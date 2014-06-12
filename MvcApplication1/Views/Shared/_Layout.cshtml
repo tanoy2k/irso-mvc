@@ -3,44 +3,46 @@
 <title>@ViewBag.Title</title>
 <html>
 <head>
-    <link href="/Scripts/Main.css" rel="stylesheet" type="text/css">
-    <link href="/Scripts/Login.css" rel="stylesheet" type="text/css">
+
+    <link href="/Scripts/theme.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script src="http://edge.quantserve.com/quant.js" async="" type="text/javascript"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>        
+        <script src="http://www.bootply.com/plugins/bootstrap-select.min.js"></script>
+
        
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
 
-    <body>
-        
-        <div id="cabecera"style="position:absolute;top:10px;left:25%;z-index:2;">
-           <h2> <div class="label label-info"> @Html.Label("SISTEMA DE TICKETS")</div></h2>
-           </div>
-        <div id="login" class="alert alert-info"; style="position:absolute;top:10px;left:70%;" >
-            
-
-            @Html.Label("Bienvenido:"+(String) Session["Usuario"])
-
-        </div>
-        
-        <div id="lateral" style="float: left;width: 160px;padding-top: 110px;">
-            <ul id="menu" role="menubar" aria-labelledby="dLabel" class="nav nav-pills nav-stacked">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Tickets", "Tickets", "Home")</li>
-                <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
-                <li>@Html.ActionLink("Crear Ticket","CreateTicket","Home")</li>
-            </ul>
-        </div>
-   
-        <div id="central" style="position:relative; float: left; top:120px;left: 0%;width: 80%">
-            <div >
-                @RenderBody()
-            </div>
-      
-     
-
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
         </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Tickets", "Tickets", "Home")</li>
+            <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+            <li>@Html.ActionLink("Crear Ticket","CreateTicket","Home")</li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
 
     </body>
 </html>
