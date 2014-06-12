@@ -77,7 +77,8 @@ namespace MvcApplication1.Controllers
         public Boolean ValidarSesion()
         {
             if (Session["Usuario"] == null)
-            { return false; }
+            //{ Response.Write("<script>alert('saraza')</script>"); return false; }   
+            { return false; } //return RedirectToAction("SesionInvalida", "Home"); }
             return true;
         }
         
